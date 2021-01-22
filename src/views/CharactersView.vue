@@ -9,13 +9,15 @@
         v-for="(character,index) in people"
         :key="index"
         :character="character"
+        :index="index"
+        @selected="changeSelected"
      />
 
     </div>
 
     <div class="characters-view__content"> 
 
-    <CharacterContent  :character="people[0]" />
+    <CharacterContent  :character="people[selected]"/>
 
     </div>
 
@@ -34,6 +36,7 @@ export default {
 
     data(){
         return{
+            selected: 0,
             people: [
                         {
                             "name": "Luke Skywalker",
@@ -91,7 +94,14 @@ export default {
                     ],
 
         }
-    }
+    },
+
+    methods: {
+        changeSelected(index){
+            console.log(`Selected: ${index}`)
+            this.selected = index;
+        }
+    },
     
 }
 </script>

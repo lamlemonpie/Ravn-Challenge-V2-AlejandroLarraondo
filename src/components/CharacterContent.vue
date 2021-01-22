@@ -41,15 +41,19 @@ export default {
             required: true
         }
     },
-    eyeColor: '',
-    hairColor: '',
-    skinColor: '',
 
-    created(){
-        this.eyeColor  = capitalFirst(this.character.eyeColor);
-        this.hairColor = capitalFirst(this.character.hairColor);
-        this.skinColor = capitalFirst(this.character.skinColor);
+    computed:{
+        eyeColor(){
+            return capitalFirst(this.character.eyeColor);
+        },
+        hairColor(){
+            return capitalFirst(this.character.hairColor);
+        },
+        skinColor(){
+            return capitalFirst(this.character.skinColor);
+        }
     }
+    
 }
 
 //Function to capitalize first letter in a string

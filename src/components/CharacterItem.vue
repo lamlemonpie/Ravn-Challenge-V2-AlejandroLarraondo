@@ -1,6 +1,6 @@
 <template>
 
-<div class="character-item">
+<div class="character-item" @click="selectCharacter(index)">
 
 
     <div class="character-item__name">
@@ -27,6 +27,10 @@ export default {
         character:{
             type: Object,
             required: true
+        },
+        index:{
+            type: Number,
+            required: true
         }
     },
 
@@ -38,6 +42,12 @@ export default {
             return `From ${this.character.homeworld.name}`
         }
     },
+
+    methods: {
+        selectCharacter(index){
+            this.$emit('selected',index);
+        }
+    }
 }
 </script>
 
