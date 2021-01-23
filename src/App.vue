@@ -1,9 +1,14 @@
 <template>
-  <div class="app-bar" >
+  <div id="app">
+    <!-- App Bar -->
+    <div class="app-bar" >
     <h2> Ravn Star Wars Registry </h2>
   </div>
+  <!-- Route View -->
   <router-view/>
+  </div>
 </template>
+
 
 <style>
 

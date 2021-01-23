@@ -1,4 +1,4 @@
-# Ravn-Challenge-V2-AlejandroLarraondo
+# Ravn Challenge V2 - AlejandroLarraondo
 
 ## Project setup
 ```

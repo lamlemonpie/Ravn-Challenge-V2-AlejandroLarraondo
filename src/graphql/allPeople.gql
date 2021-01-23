@@ -1,0 +1,22 @@
+query allTodos($count: Int!){
+    allPeople(first: $count, last:5){
+                people{
+                name
+                species {
+                    name
+                }
+                homeworld {
+                    name
+                }
+                eyeColor
+                hairColor
+                skinColor
+                birthYear
+                vehicleConnection{
+                    vehicles{
+                    name
+                    }
+                }
+                }
+            }
+}
