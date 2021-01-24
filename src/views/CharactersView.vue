@@ -3,7 +3,8 @@
     <!-- Character View, Navigation (PersonCells) -->
     <div class="characters-view__navigation">
       
-       <!-- The query fetched data correctly -->
+      <!-- The query fetched data correctly -->
+      <!-- If allPeople exists, the people is show with a v-for loop -->
       <div v-if="allPeople" >
             <CharacterItem
               v-for="(character, index) in allPeople.people"
@@ -14,6 +15,7 @@
       </div>
 
       <!-- The query is still loading -->
+      <!-- If loading, a loading indicator is shown -->
       <div v-if="$apollo.loading" class="characters-view__loading">
             <div class="characters-view__loading-item">
               <img
@@ -25,6 +27,7 @@
       </div>
 
     <!-- The query fails to load -->
+    <!-- If failed, an error message is shown -->
     <div v-else-if="error" class="characters-view__error">
       Failed To Load Data
     </div>
@@ -32,7 +35,8 @@
     </div>
     
     <!-- Character View, Person Content -->
-    <!-- CharacterContent shows the selected character (person) -->
+    <!-- If an item is selected, CharacterContent component is called -->
+    <!-- CharacterContent shows the selected character (person) content  -->
     <div v-if="selected">
       <div class="characters-view__content">
         <CharacterContent :character="selected_character" />
@@ -44,10 +48,11 @@
 </template>
 
 <script>
-import CharacterItem from "../components/CharacterItem";
+//Importing components
+import CharacterItem    from "../components/CharacterItem";
 import CharacterContent from "../components/CharacterContent";
 
-
+//Importing query 
 import allPeopleQuery from "../graphql/allPeople.gql";
 
 export default {
@@ -63,8 +68,8 @@ export default {
       query: allPeopleQuery,
       // Static parameters
       variables: {
-        first: 5,
-        after: "",
+        first: 5, //take 5
+        after: "", //starting point (page)
       },
       error(error) {
        this.error = JSON.stringify(error.message);
@@ -86,6 +91,7 @@ export default {
   methods: {
     // Trigger function to change the selected character
     // called when event "selected" is detected.
+    // selected character is saved
     changeSelected(character) {
       console.log(`Selected: ${character.name}`);
       this.selected_character = character;
@@ -101,13 +107,11 @@ export default {
           variables: { first: this.first, after: this.page },
           
           updateQuery: (previousResult, {fetchMoreResult}) => {
-
             //if the query returns empty values, we stop fetching
             if( fetchMoreResult.allPeople.people.length == 0 ){
               this.hasMore = false;
               return {}
             }
-
             //new query data is appended to old query data
             return{
               allPeople: {
@@ -125,6 +129,7 @@ export default {
 
   },
 
+  // We watch if allPeople is changed.
   // If allPeople is changed, it means new data has been loaded
   // so in order to continue fetching we save the page 
   watch:{
@@ -132,12 +137,8 @@ export default {
       this.page = this.allPeople.pageInfo.endCursor;
       setTimeout(() => {  this.loadMore(); }, 1500); //to test delay while loading
       //this.loadMore(); //load more inmediately without delay
-
     },
-
-
   }
-
 
 };
 

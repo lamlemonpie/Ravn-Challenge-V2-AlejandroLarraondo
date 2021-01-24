@@ -29,9 +29,11 @@ export default {
     },
   },
 
-  // Function to create a description based on species and homeworld
-  // Some people don't have species in the query son only homeworld shown.
+
   computed: {
+    
+    // Function to create a description based on species and homeworld
+    // Some people don't have species in the query son only homeworld shown.
     description() {
       if (this.character.species != null) {
         return `${this.character.species.name} from ${this.character.homeworld.name}`;
@@ -40,9 +42,11 @@ export default {
     },
   },
 
-  // Event. when the item is clicked, parent is notified to trigger its changeSelected function
-  // character is passed to the event
+  
   methods: {
+    
+    // Event. when the item is clicked, parent is notified to trigger its changeSelected function
+    // character is passed to the event
     selectCharacter(character) {
       this.$emit("selected", character);
     },

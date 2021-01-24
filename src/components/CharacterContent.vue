@@ -1,8 +1,11 @@
 <template>
-  <!-- Section Header General Information-->
+  
   <div>
+    <!-- Section Header General Information-->
     <div class="character-content__title"><h2>General Information</h2></div>
-
+      
+      <!-- Character content is shown -->
+      <!-- Some elements are capitalized in the first letter to match mockups -->
       <div class="character-content__data-cell">
         <div class="character-content__text">Eye Color</div>
         <div class="character-content__info">{{ eyeColor }}</div>
@@ -25,7 +28,7 @@
 
     <!-- Section Header Vehicles-->
     <div class="character-content__title"><h2>Vehicles</h2></div>
-      <!-- loop to show the vehicles' names -->
+      <!-- v-for loop to show the vehicles' names -->
       <div
         class="character-content__data-cell character-content__text"
         v-for="(vehicle, index) in character.vehicleConnection.vehicles"
