@@ -33,11 +33,12 @@ http://localhost:8080/
 - Vertical Scroll for the characters is hidden according to mockups.
 - There is no selected character indicator according to mockups.
 - The characters load automatically (5 per query) without trigger gesture.
+- If a character doesn't have any vehicles, a "No vehicles" message will be shown.
 
 ## Aditional Information
 - The project design was made with pure CSS and HTML. The styling was made in order to replicate the ones in the mockups as much as possible.
 - "species" property is missing in some Person objects, specially with Human objects. So the description is modified in the ones without this property.
-- The query is called every 500 ms in order to see the loading indicator. When the delay is ommited, the loading indicator can not be seen. 
+- The query is called every 500 ms in order to see the loading indicator. When the delay is ommited, the loading indicator can not be seen. This 500ms delay is made on purpose. It can be modified under the allPeople watcher in CharactersView component.
 - Google Chrome was used.
 
 ## Project in execution
@@ -48,7 +49,7 @@ Selecting character after loading
 ![](images/test2.png)
 
 Project running with 1500ms delay
-![](images/test3.gif)
+![](images/test4.gif)
 
 ## Technologies used
 - Vue.js

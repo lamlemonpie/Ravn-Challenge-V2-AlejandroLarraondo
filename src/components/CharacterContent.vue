@@ -29,13 +29,22 @@
     <!-- Section Header Vehicles-->
     <div class="character-content__title"><h2>Vehicles</h2></div>
       <!-- v-for loop to show the vehicles' names -->
-      <div
-        class="character-content__data-cell character-content__text"
-        v-for="(vehicle, index) in character.vehicleConnection.vehicles"
-        :key="index"
-      >
-        {{ vehicle.name }}
+      <div v-if="character.vehicleConnection.vehicles.length > 0">
+        <div
+          class="character-content__data-cell character-content__text"
+          v-for="(vehicle, index) in character.vehicleConnection.vehicles"
+          :key="index"
+        >
+          {{ vehicle.name }}
+        </div>
       </div>
+
+      <div v-else class="character-content__data-cell character-content__text">
+
+        No vehicles
+
+      </div>
+
   </div>
 </template>
 
