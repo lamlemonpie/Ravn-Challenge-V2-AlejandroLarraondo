@@ -130,7 +130,7 @@ export default {
   watch:{
     allPeople(){
       this.page = this.allPeople.pageInfo.endCursor;
-      setTimeout(() => {  this.loadMore(); }, 500); //to test delay while loading
+      setTimeout(() => {  this.loadMore(); }, 1500); //to test delay while loading
       //this.loadMore(); //load more inmediately without delay
 
     },
@@ -146,7 +146,7 @@ export default {
 
 <style>
 .characters-view {
-  height: 93vh;
+  height: 92vh;
   width: 100%;
 
   display: inline-grid;
