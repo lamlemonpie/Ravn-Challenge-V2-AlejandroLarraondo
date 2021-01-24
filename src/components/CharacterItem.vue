@@ -56,7 +56,8 @@ export default {
   padding: 16px;
   height: 69;
   border-bottom: solid;
-  border-bottom-color: grey;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  border-bottom-width: 1px;
 
   /* Grid  limits */
   display: grid;

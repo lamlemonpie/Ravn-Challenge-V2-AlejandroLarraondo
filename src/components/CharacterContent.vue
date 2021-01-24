@@ -3,37 +3,36 @@
   <div>
     <div class="character-content__title"><h2>General Information</h2></div>
 
+      <div class="character-content__data-cell">
+        <div class="character-content__text">Eye Color</div>
+        <div class="character-content__info">{{ eyeColor }}</div>
+      </div>
 
-    <div class="character-content__data-cell">
-      <div class="character-content__text">Eye Color</div>
-      <div class="character-content__info">{{ eyeColor }}</div>
-    </div>
+      <div class="character-content__data-cell">
+        <div class="character-content__text">Hair Color</div>
+        <div class="character-content__info">{{ hairColor }}</div>
+      </div>
 
-    <div class="character-content__data-cell">
-      <div class="character-content__text">Hair Color</div>
-      <div class="character-content__info">{{ hairColor }}</div>
-    </div>
+      <div class="character-content__data-cell">
+        <div class="character-content__text">Skin Color</div>
+        <div class="character-content__info">{{ skinColor }}</div>
+      </div>
 
-    <div class="character-content__data-cell">
-      <div class="character-content__text">Skin Color</div>
-      <div class="character-content__info">{{ skinColor }}</div>
-    </div>
-
-    <div class="character-content__data-cell">
-      <div class="character-content__text">Birth Year</div>
-      <div class="character-content__info">{{ character.birthYear }}</div>
-    </div>
+      <div class="character-content__data-cell">
+        <div class="character-content__text">Birth Year</div>
+        <div class="character-content__info">{{ character.birthYear }}</div>
+      </div>
 
     <!-- Section Header Vehicles-->
     <div class="character-content__title"><h2>Vehicles</h2></div>
-
-    <div
-      class="character-content__data-cell character-content__text"
-      v-for="(vehicle, index) in character.vehicleConnection.vehicles"
-      :key="index"
-    >
-      {{ vehicle.name }}
-    </div>
+      <!-- loop to show the vehicles' names -->
+      <div
+        class="character-content__data-cell character-content__text"
+        v-for="(vehicle, index) in character.vehicleConnection.vehicles"
+        :key="index"
+      >
+        {{ vehicle.name }}
+      </div>
   </div>
 </template>
 
@@ -48,12 +47,15 @@ export default {
   },
 
   computed: {
+    // eyeColor's first letter is capitalized
     eyeColor() {
       return capitalFirst(this.character.eyeColor);
     },
+    // hairColor's first letter is capitalized
     hairColor() {
       return capitalFirst(this.character.hairColor);
     },
+    // skinColor's first letter is capitalized
     skinColor() {
       return capitalFirst(this.character.skinColor);
     },
@@ -92,7 +94,8 @@ function capitalFirst(string) {
   justify-content: space-between;
   padding: 16px;
   border-bottom: solid;
-  border-bottom-color: grey;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  border-bottom-width: 1px;
 }
 
 .character-content__text {

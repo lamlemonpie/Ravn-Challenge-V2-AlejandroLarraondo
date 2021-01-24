@@ -1,5 +1,5 @@
-query allTodos($count: Int!){
-    allPeople(first: $count, last:5){
+query allPeopleQuery($first: Int!, $after: String!){
+    allPeople(first: $first, after: $after){
                 people{
                 name
                 species {
@@ -17,6 +17,11 @@ query allTodos($count: Int!){
                     name
                     }
                 }
+
+                }
+
+                pageInfo {
+                    endCursor
                 }
             }
 }
