@@ -10,7 +10,7 @@ Web app written in Vue.js that allows you to browse the [Star Wars GraphQL API](
 
 ### Clone the repo
 ```
-https://github.com/lamlemonpie/Ravn-Challenge-V2-AlejandroLarraondo.git
+git clone https://github.com/lamlemonpie/Ravn-Challenge-V2-AlejandroLarraondo.git
 ```
 
 ### Install the project
